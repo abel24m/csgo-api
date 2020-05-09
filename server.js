@@ -44,3 +44,11 @@ app.get('/match', function(req, res) {
   })
   return res
 })
+
+app.get('/teamstats', function(req, res) {
+  var teamid = req.query.teamid;
+  HLTV.getTeamStats({id: teamid}).then((team) =>{
+    res.send(team)
+  })
+  return res
+})
