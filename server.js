@@ -27,6 +27,14 @@ app.get('/player', function(req, res) {
   return res
 })
 
+app.get('/playerstats', function(req, res) {
+  var playerid = req.query.playerid;
+  HLTV.getPlayerStats({id: playerid}).then((data) => {
+    res.send(data)
+  })
+  return res
+})
+
 app.get('/team', function(req, res) {
   var teamid = req.query.teamid;
   HLTV.getTeam({id: teamid}).then((team) => {
